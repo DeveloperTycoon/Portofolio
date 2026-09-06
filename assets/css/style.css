@@ -134,8 +134,8 @@ body {
 .hero a {
     align-self: center;
     display: inline-block;     
-    background-color: var(--secondary-clr); 
-    color: var(--additional-clr-text);            
+    background-color: var(--secondary-clr) !important; 
+    color: var(--additional-clr-text) !important;            
     text-decoration: none;     
     padding: 12px 32px;        
     font-size: 16px;
@@ -155,13 +155,13 @@ body {
     padding: 10px;
     border: var(--border-img);
     border-radius: 20px;
-    color: var(--primary-clr-text);   
-    background-color: var(--secondary-clr);
+    color: var(--primary-clr-text) !important;   
+    background-color: var(--secondary-clr) !important;
 }
 .quote-box p {
     font-weight: 500;
     font-style: italic;
-    color: var(--secondary-clr-text);
+    color: var(--secondary-clr-text) !important;
 }
 
 .Status {
