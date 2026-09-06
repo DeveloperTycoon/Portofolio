@@ -60,7 +60,7 @@ body {
 }
 
 .nav-links a:not(.aboutnav a):hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .aboutnav {
@@ -72,7 +72,7 @@ body {
 }
 
 .aboutnav:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .aboutnav a {
