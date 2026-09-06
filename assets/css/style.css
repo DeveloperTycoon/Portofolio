@@ -387,10 +387,7 @@ img {
 
 
 @media (max-width: 768px) {
-    .navbar {
-        display: none;
-    }
-    .nav-links {
+    .navbar, .nav-links, .glow-circle {
         display: none;
     }
     .Status {
