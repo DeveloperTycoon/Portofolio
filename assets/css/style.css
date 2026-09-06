@@ -387,6 +387,9 @@ img {
 
 
 @media (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
     .nav-links {
         display: none;
     }
