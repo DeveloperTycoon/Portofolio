@@ -243,19 +243,19 @@ body {
 }
 
 video.media-box {
-  width: 100%;            /* Paksa video mengikuti lebar kotaknya */
-  height: auto;           /* Menjaga rasio video */
+  width: 100%;            
+  height: auto;           
   display: block;
-  border-radius: 12px;    /* Sudut membulat */
+  border-radius: 12px;    
   overflow: hidden;
 }
 
 .media-box {
     min-height: 250px;
-    max-height: 300px;
+    max-height: 250px;
     min-width: 200px;
-    max-width: 600px;
-    background-color: var(--background-img);
+    max-width: 900px;
+    background-color: black;
     border: 2px solid #000; 
 }
 
@@ -278,6 +278,7 @@ img {
 .my-skill {
     border-top: var(--border-sts) var(--border-color);
     border-bottom: var(--border-sts) var(--border-color);
+    margin: 30px;
 
 }
 
