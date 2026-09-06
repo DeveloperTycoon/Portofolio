@@ -310,7 +310,7 @@ img {
 
 .previous-jobs {
     box-sizing: border-box;
-    min-height: 350px;
+    min-height: 250px;
     max-height: 350px;
     min-width: 200px;
     max-width: 600px;
@@ -343,7 +343,8 @@ img {
     height:300px ;
     width: 100%;
     background-color: rgb(8, 8, 8);
-    border: var(--border-sts) var(--border-color);
+    border-top: var(--border-sts) var(--border-color);
+    border-bottom: var(--border-sts) var(--border-color);
 }
 
 .Footer h1 {
