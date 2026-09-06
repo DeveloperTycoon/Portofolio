@@ -312,7 +312,6 @@ img {
     box-sizing: border-box;
     min-height: 350px;
     max-height: 350px;
-    min-width: 600px;
     max-width: 600px;
     box-shadow: #2b2a2a 1px 1px 9rem 1rem;
     z-index: -10;
