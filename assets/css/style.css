@@ -251,9 +251,9 @@ video.media-box {
 }
 
 .media-box {
-    min-height: 300px;
+    min-height: 250px;
     max-height: 300px;
-    min-width: 531px;
+    min-width: 200px;
     max-width: 600px;
     background-color: var(--background-img);
     border: 2px solid #000; 
