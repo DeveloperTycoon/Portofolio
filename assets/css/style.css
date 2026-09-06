@@ -11,6 +11,7 @@
 }
 html {
   scroll-behavior: smooth; 
+  overflow-y: scroll;
 }
 
 * {
@@ -22,6 +23,7 @@ html {
 body {
     font-family: 'inter', sans-serif;
     background-color: var(--primary-clr);
+    overflow-x: hidden;
 }
 
 
@@ -242,12 +244,13 @@ body {
   width: 50%;
 }
 
-video.media-box {
-  width: 100%;            
-  height: auto;           
-  display: block;
-  border-radius: 12px;    
-  overflow: hidden;
+video.media-box,
+.media-box video {
+    width: 100%;            
+    height: auto;           
+    display: block;
+    border-radius: 12px;    
+    overflow: hidden;
 }
 
 .media-box {
@@ -255,7 +258,7 @@ video.media-box {
     max-height: 250px;
     min-width: 200px;
     max-width: 900px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0);
     border: 2px solid #000; 
 }
 
@@ -349,7 +352,7 @@ img {
 }
 
 .Footer h1 {
-    font-size: 40;
+    font-size: 40px;
     color: var(--primary-clr-text);
     text-align: center;
     padding-top: 50px;
@@ -382,7 +385,7 @@ img {
     pointer-events: none;
     transform: translate(-50%, -50%);
     transition: transform 0.1s ease-out;
-    will-change: tranform;
+    will-change: transform;
 }
 
 
