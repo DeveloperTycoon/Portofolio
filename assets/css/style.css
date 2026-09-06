@@ -66,7 +66,7 @@ body {
 
 .aboutnav {
     width: fit-content;
-    background-color: #ffffff;
+    background-color: #ffffff !important;
     border-radius: 40px;
     display: inline-block;
     transition: transform 0.2s ease, color 0.2s ease;
