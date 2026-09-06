@@ -244,13 +244,12 @@ body {
   width: 50%;
 }
 
-video.media-box,
-.media-box video {
-    width: 100%;            
-    height: auto;           
-    display: block;
-    border-radius: 12px;    
-    overflow: hidden;
+video.media-box {
+  width: 100%;            
+  height: auto;           
+  display: block;
+  border-radius: 12px;    
+  overflow: hidden;
 }
 
 .media-box {
@@ -258,7 +257,7 @@ video.media-box,
     max-height: 250px;
     min-width: 200px;
     max-width: 900px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: black;
     border: 2px solid #000; 
 }
 
