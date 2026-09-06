@@ -17,3 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+const glow = document.getElementById('glow');
+
+window.addEventListener('pointermove', (e) => {
+  const x = e.clientX;
+  const y = e.clientY;
+
+  glow.style.transform= `translate(${x - 100}px, ${y - 100}px)`;
+
+})
