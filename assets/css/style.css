@@ -80,27 +80,6 @@ body {
     color: #111111;
 }
 
-.theme-toggle {
-    width: 44px;
-    height: 22px;
-    background-color: #1a1a1a;
-    border-radius: 99px;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 3px;
-    transition: background-color 0.3s ease;
-}
-
-.toggle-circle {
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-}
 .hero {
     justify-items: center;
 }
@@ -117,6 +96,20 @@ body {
     font-weight: 500;
     letter-spacing: -2%;
     color: var(--primary-clr-text);
+}
+
+.cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1rem;
+    background-color: rgb(226, 226, 226);
+    vertical-align: middle;
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    0%, 49% { opacity: 1;}
+    50%, 100% {opacity: 0;}
 }
 
 .hero h1.wavy-text span {
