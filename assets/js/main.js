@@ -107,7 +107,7 @@ const jumlahBintang = 300;
       star.style.height = `${size}px`;
       star.style.setProperty('--duration', `${duration}s`);
       star.style.animationDelay = `${delay}s`;
-
+      star.style.zIndex = -100;
       document.body.appendChild(star);
 }
 
@@ -116,7 +116,7 @@ const jumlahBintang = 300;
 
 const audio = document.getElementById('myAudio');
 
-audio.volume = 0.1
+audio.volume = 0.3
 
 
 // Testing begin
