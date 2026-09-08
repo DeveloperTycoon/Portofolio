@@ -118,7 +118,8 @@ const audio = document.getElementById('myAudio');
 
 audio.volume = 0.3
 
-
 // Testing begin
-
+window.addEventListener('mousemove', () => {
+  document.getElementById("myAudio").muted = false;
+}, {once:true});
 // Tesing end
