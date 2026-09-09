@@ -110,12 +110,17 @@ body {
     transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.aboutnav:hover {
+.aboutnav a.active:hover {
     transform: scale(1.05);
 }
 
-.aboutnav a {
+.nav-links a.active {
     color: #111111;
+    width: fit-content;
+    background-color: #ffffff !important;
+    border-radius: 40px;
+    display: inline-block;
+    transition: all 0.2s ease, color 0.2s ease;
 }
 
 .hero {

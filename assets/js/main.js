@@ -117,9 +117,31 @@ const jumlahBintang = 300;
 const audio = document.getElementById('myAudio');
 
 audio.volume = 0.3
-
-// Testing begin
 window.addEventListener('mousemove', () => {
   document.getElementById("myAudio").muted = false;
 }, {once:true});
+
+
+// Testing begin
+const sections = document.querySelectorAll("section.section[id]");
+const navItems = document.querySelectorAll(".nav-item");
+const observerOption = {
+  root : null,
+  rootMargin : "-55% 0px -55% 0px",
+  threshold: 0
+}
+const observer = new IntersectionObserver((e) => {
+  e.forEach((en) => {
+    if (en.isIntersecting) {
+      const activeId = en.target.getAttribute("id");
+      navItems.forEach((item) => item.classList.remove("active"));
+      const activeNav = document.querySelector(`.nav-item[href="#${activeId}"]`);
+      if (activeNav) {
+        activeNav.classList.add("active");
+      }
+    }
+  });
+}, observerOption)
+
+sections.forEach((section) => observer.observe(section))
 // Tesing end
