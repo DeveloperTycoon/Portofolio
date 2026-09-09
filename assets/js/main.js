@@ -120,7 +120,7 @@ const audio = document.getElementById('myAudio');
 
 if (audio) {
   audio.volume = 0.3;
-  const FADE_DURATION = 1;
+
   const enableAudio = () => {
     audio.muted = false;
     audio.play().catch(() => {});
@@ -170,7 +170,7 @@ sect.forEach((el) => {
       ease: "power2.out", // easing stylenya
       scrollTrigger: {
         trigger: el, // ke trigger ketika ke scroll sebuah section (mirip intersection)
-        start: "top 65%", // Kalau keliatan 65% dari atas, maka akan ke trigger
+        start: "top 55%", // Kalau keliatan 65% dari atas, maka akan ke trigger
         toggleActions: "play none none reverse" // onEnter onLeave onEnterBack onLeaveBack
       }
     }
