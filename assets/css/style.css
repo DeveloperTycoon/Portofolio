@@ -85,7 +85,7 @@ body {
 
 .nav-links {
     display: flex;
-    gap: 32px;
+    gap: 20px;
 }
 
 .nav-links a {
@@ -164,7 +164,12 @@ body {
 .btn-container {
     display: flex;
     justify-content: center; 
-    margin-top: 20px;        
+    margin-top: 20px;      
+    transition: transform 0.6s ease;  
+}
+
+.btn-container:hover {
+    transform: scale(1.05);
 }
 
 .hero a {
@@ -251,6 +256,19 @@ body {
 .About-img {
     width: 30%;
     height: 30%;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg); 
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg); 
+  }
 }
 
 .card {
@@ -318,8 +336,6 @@ img {
     margin: 0 auto;
     padding: 40px 20px;
 }
-
-
 
 .Previous-Jobs {
     padding: 10px;

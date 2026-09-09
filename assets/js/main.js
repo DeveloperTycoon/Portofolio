@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 // NML Animation
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -114,12 +116,56 @@ const jumlahBintang = 300;
 
 // Audio
 
-const audio = document.getElementById('myAudio');
+const audio = document.getElementById("myAudio");
 
-audio.volume = 0.3
-window.addEventListener('mousemove', () => {
-  document.getElementById("myAudio").muted = false;
-}, {once:true});
+if (audio) {
+  const TARGET_VOLUME = 0.3;
+  const FADE_DURATION = 1;
+
+  audio.volume = TARGET_VOLUME;
+
+  // Aktifkan audio setelah interaksi user
+  const enableAudio = () => {
+    audio.muted = false;
+
+    audio.play().catch(() => {});
+  };
+
+  window.addEventListener("click", enableAudio, { once: true });
+  window.addEventListener("mousemove", enableAudio, { once: true });
+
+  // Pause + fade saat meninggalkan tab
+  document.addEventListener("visibilitychange", () => {
+    gsap.killTweensOf(audio);
+
+    if (document.hidden) {
+      gsap.to(audio, {
+        volume: 0,
+        duration: FADE_DURATION,
+        onComplete: () => {
+          if (document.hidden) {
+            audio.pause();
+          }
+        }
+      });
+    } else {
+      // Kembali ke tab
+      audio.volume = 0;
+
+      audio.play()
+        .then(() => {
+          gsap.to(audio, {
+            volume: TARGET_VOLUME,
+            duration: FADE_DURATION
+          });
+        })
+        .catch(err => {
+          console.log("Autoplay blocked on focus:", err);
+        });
+    }
+  });
+}
+
 
 
 // Testing begin
@@ -145,3 +191,24 @@ const observer = new IntersectionObserver((e) => {
 
 sections.forEach((section) => observer.observe(section))
 // Tesing end
+
+const sect = document.querySelectorAll('.section:not(.Footer), .card, .StatusMe');
+sect.forEach((el) => {
+  gsap.fromTo(el, 
+    { 
+      opacity: 0, // Keliatannya berapa persen
+      y: 50  // dari bawah sekitar 50
+    }, 
+    { 
+      opacity: 1, // ke keliatannya penuh
+      y: 0, // kembali ke posisi awal
+      duration: 1, // durasi nya berapa
+      ease: "power2.out", // easing stylenya
+      scrollTrigger: {
+        trigger: el, // ke trigger ketika ke scroll sebuah section (mirip intersection)
+        start: "top 65%", // Kalau keliatan 65% dari atas, maka akan ke trigger
+        toggleActions: "play none none reverse" // onEnter onLeave onEnterBack onLeaveBack
+      }
+    }
+  );
+});
