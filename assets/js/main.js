@@ -116,54 +116,18 @@ const jumlahBintang = 300;
 
 // Audio
 
-const audio = document.getElementById("myAudio");
+const audio = document.getElementById('myAudio');
 
 if (audio) {
-  const TARGET_VOLUME = 0.3;
+  audio.volume = 0.3;
   const FADE_DURATION = 1;
-
-  audio.volume = TARGET_VOLUME;
-
-  // Aktifkan audio setelah interaksi user
   const enableAudio = () => {
     audio.muted = false;
-
     audio.play().catch(() => {});
   };
-
-  window.addEventListener("click", enableAudio, { once: true });
-  window.addEventListener("mousemove", enableAudio, { once: true });
-
-  // Pause + fade saat meninggalkan tab
-  document.addEventListener("visibilitychange", () => {
-    gsap.killTweensOf(audio);
-
-    if (document.hidden) {
-      gsap.to(audio, {
-        volume: 0,
-        duration: FADE_DURATION,
-        onComplete: () => {
-          if (document.hidden) {
-            audio.pause();
-          }
-        }
-      });
-    } else {
-      // Kembali ke tab
-      audio.volume = 0;
-
-      audio.play()
-        .then(() => {
-          gsap.to(audio, {
-            volume: TARGET_VOLUME,
-            duration: FADE_DURATION
-          });
-        })
-        .catch(err => {
-          console.log("Autoplay blocked on focus:", err);
-        });
-    }
-  });
+  
+  window.addEventListener('click', enableAudio, { once: true });
+  window.addEventListener('mousemove', enableAudio, { once: true });
 }
 
 
