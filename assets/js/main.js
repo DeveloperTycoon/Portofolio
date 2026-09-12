@@ -78,7 +78,6 @@ document.addEventListener("DOMContentLoaded", typeEffect)
 
 
 // Star Effect
-
 const jumlahBintang = 300; 
 
     for (let i = 0; i < jumlahBintang; i++) {
@@ -141,8 +140,8 @@ if (audio) {
 
       const startVolume = audio.volume;
       const difference = targetVolume - startVolume;
-      const steps = 30;
-      const stepTime = FADE_DURATION / steps;
+      const steps = 30; // Step
+      const stepTime = FADE_DURATION / steps; // Delay
 
       let step = 0;
 
@@ -172,8 +171,6 @@ if (audio) {
         }
     });
 }
-
-
 
 // Testing begin
 const sections = document.querySelectorAll("section.section[id]");
