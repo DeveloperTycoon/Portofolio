@@ -170,7 +170,7 @@ sect.forEach((el) => {
       ease: "power2.out", // easing stylenya
       scrollTrigger: {
         trigger: el, // ke trigger ketika ke scroll sebuah section (mirip intersection)
-        start: "top 55%", // Kalau keliatan 65% dari atas, maka akan ke trigger
+        start: "top 70%", // Kalau keliatan 65% dari atas, maka akan ke trigger
         toggleActions: "play none none reverse" // onEnter onLeave onEnterBack onLeaveBack
       }
     }

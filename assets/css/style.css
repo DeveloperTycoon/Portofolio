@@ -216,10 +216,9 @@ body {
 
 .StatusMe {
     align-items: center;
-    text-align: justify;
+    text-align: center;
     color: var(--primary-clr-text);
 }
-
 
 
 .About-Me {
@@ -476,6 +475,9 @@ img {
 
     .previous-jobs img {
         box-shadow: #2b2a2a 1px 1px 4rem 10px;
+    }
+    .TextSec, .wavy-text {
+        text-align: center;
     }
 }
 
