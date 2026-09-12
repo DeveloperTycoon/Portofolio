@@ -115,8 +115,7 @@ const jumlahBintang = 300;
 
 
 // Audio
-
-const audio = document.getElementById('myAudio');
+const audio = document.getElementById("myAudio");
 
 if (audio) {
   audio.volume = 0.3;
@@ -128,6 +127,50 @@ if (audio) {
   
   window.addEventListener('click', enableAudio, { once: true });
   window.addEventListener('mousemove', enableAudio, { once: true });
+
+  audio.volume = 0.3;
+
+  const NORMAL_VOLUME = 0.3;
+  const DIM_VOLUME = 0;
+  const FADE_DURATION = 1000;
+
+  let fadeTimer;
+
+  function fadeVolume(targetVolume) {
+      clearInterval(fadeTimer);
+
+      const startVolume = audio.volume;
+      const difference = targetVolume - startVolume;
+      const steps = 30;
+      const stepTime = FADE_DURATION / steps;
+
+      let step = 0;
+
+      fadeTimer = setInterval(() => {
+          step++;
+
+          audio.volume = Math.max(
+              0,
+              Math.min(
+                  1,
+                  startVolume + difference * (step / steps)
+              )
+          );
+
+          if (step >= steps) {
+              clearInterval(fadeTimer);
+              audio.volume = targetVolume;
+          }
+      }, stepTime);
+    }
+
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            fadeVolume(DIM_VOLUME);
+        } else {
+            fadeVolume(NORMAL_VOLUME);
+        }
+    });
 }
 
 
