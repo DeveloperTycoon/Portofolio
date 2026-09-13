@@ -2,7 +2,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 // NML Animation
 
-document.addEventListener("DOMContentLoaded", () => {
+$(document).ready(function() {
   
   
   const tl = gsap.timeline({ repeat: -1 });
@@ -26,9 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Cursor Glow
 
-const glow = document.getElementById('glow');
+const $glow = $("#glow");
 
-window.addEventListener('pointermove', (e) => {
+$(window).on('pointermove', (e) => {
   const x = e.clientX;
   const y = e.clientY;
 
@@ -40,7 +40,7 @@ window.addEventListener('pointermove', (e) => {
 
 // P Writer
 
-const textElement = document.getElementById("TextSec");
+const textElement = $("#TextSec")[0];
 const words = ["Let's create something that lasts forever!","It's time we make something unforgettable!","A developer that learn by doing!"]
 
 
@@ -74,7 +74,7 @@ function typeEffect() {
   setTimeout(typeEffect, typeSpeed)
 }
 
-document.addEventListener("DOMContentLoaded", typeEffect)
+$(document).ready(typeEffect)
 
 
 // Star Effect
@@ -83,14 +83,8 @@ const jumlahBintang = 300;
     for (let i = 0; i < jumlahBintang; i++) {
       const star = document.createElement('div');
       star.classList.add('star');
-      const fullWidth = Math.max(
-        document.body.scrollWidth,
-        document.documentElement.scrollWidth
-      );
-      const fullHeight = Math.max(
-        document.body.scrollHeight,
-        document.documentElement.scrollHeight
-      );
+      const fullWidth = $(document).width();
+      const fullHeight = $(document).height();
       
       const x = Math.random() * fullWidth;
       const y = Math.random() * fullHeight;
@@ -102,19 +96,23 @@ const jumlahBintang = 300;
       const duration = Math.random() * 2 + 1; 
       const delay = Math.random() * 3; 
 
-      star.style.left = `${x}px`;
-      star.style.top = `${y}px`;
-      star.style.width = `${size}px`;
-      star.style.height = `${size}px`;
-      star.style.setProperty('--duration', `${duration}s`);
-      star.style.animationDelay = `${delay}s`;
-      star.style.zIndex = -100;
-      document.body.appendChild(star);
+      const $star = $("<div></div>")
+        .addClass("star")
+        .css({
+          left: `${x}px`,
+          top: `${y}px`,
+          width: `${size}px`,
+          height: `${size}px`,
+          animationDelay: `${delay}s`,
+          zIndex: -100
+        });
+        $star.css("--duration", `${duration}s`);
+        $("body").append($star);
 }
 
 
 // Audio
-const audio = document.getElementById("myAudio");
+const audio = $("#myAudio")[0];
 
 if (audio) {
   audio.volume = 0.3;
@@ -124,8 +122,7 @@ if (audio) {
     audio.play().catch(() => {});
   };
   
-  window.addEventListener('click', enableAudio, { once: true });
-  window.addEventListener('mousemove', enableAudio, { once: true });
+  $(window).one('click mousemove', enableAudio);
 
   audio.volume = 0.3;
 
@@ -173,8 +170,8 @@ if (audio) {
 }
 
 // Testing begin
-const sections = document.querySelectorAll("section.section[id]");
-const navItems = document.querySelectorAll(".nav-item");
+const sections = $(".section[id]").get();
+const navItems = $(".nav-item").get();
 const observerOption = {
   root : null,
   rootMargin : "-55% 0px -55% 0px",
@@ -196,7 +193,7 @@ const observer = new IntersectionObserver((e) => {
 sections.forEach((section) => observer.observe(section))
 // Tesing end
 
-const sect = document.querySelectorAll('.section:not(.Footer), .card, .StatusMe');
+const sect = $(".section:not(.Footer), .card, .StatusMe").get();
 sect.forEach((el) => {
   gsap.fromTo(el, 
     { 
@@ -221,6 +218,6 @@ if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
 
-window.addEventListener('load', () => {
+$(window).on("load", () => {
   window.scrollTo(0, 0);
 });

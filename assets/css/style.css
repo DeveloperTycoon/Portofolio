@@ -283,6 +283,7 @@ body {
 
 .card.reverse {
     flex-direction: row-reverse;
+    
 }
 
 .media-box, 
@@ -478,6 +479,12 @@ img {
     }
     .TextSec, .wavy-text {
         text-align: center;
+    }
+    .About-text p {
+        font-size: 20px;
+        line-height: 1.6;
+        color: var(--secondary-clr-text);
+        margin-bottom: 12px;
     }
 }
 
